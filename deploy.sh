@@ -13,6 +13,6 @@ do
   docker run -d --net load_balancing load_balancing/hostname
 done
 
-${DIR}/nginx/updateConf.sh
+${DIR}/nginx/generateConf.sh
 docker build --tag load_balancing/nginx ${DIR}/nginx
 docker run -d --net load_balancing --name nginx -p 80:80 load_balancing/nginx

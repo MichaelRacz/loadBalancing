@@ -1,4 +1,6 @@
-docker run --net load_balancing --rm python python -c '
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+docker run --net load_balancing --rm > ${DIR}/nginx.conf python python -c '
 import sys, json, urllib.request;
 
 services_response = urllib.request.urlopen("http://consul:8500/v1/catalog/service/hostname");
